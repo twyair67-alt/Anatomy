@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050607">
+    <title>Street Art Horror - ANATOMY</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="start-screen">
+        <img src="./logo.jpg" alt="ANATOMY">
+        <div class="start-prompt">[ CLICCA OVUNQUE PER ENTRARE NELL'INCUBO ]</div>
+        <div class="controls-info">MOVIMENTO: WASD | CORSA: SHIFT / DOPPIO W | TORCIA: F | ARMA SINISTRA: G | SPARA / ATTACCA: CLICK | RICARICA: R | INTERAGISCI: E | DIARIO: TAB</div>
+    </div>
+
+    <div id="crosshair" aria-hidden="true"></div>
+    <div id="interaction-prompt" aria-live="polite"></div>
+    <div id="tension-subtitle" aria-live="polite"></div>
+    <div id="note-overlay" aria-hidden="true">
+        <div id="note-content" role="dialog" aria-modal="true" aria-labelledby="note-text">
+            <div id="note-text"></div>
+            <small>PREMI E PER RIPIEGARE IL FOGLIO</small>
+        </div>
+    </div>
+    <div id="keypad-overlay" aria-hidden="true">
+        <section id="keypad-panel" role="dialog" aria-modal="true" aria-labelledby="keypad-title">
+            <strong id="keypad-title">TASTIERA DI ACCESSO</strong>
+            <output id="keypad-display" aria-live="polite">____</output>
+            <div id="keypad-buttons">
+                <button type="button" data-key="1">1</button>
+                <button type="button" data-key="2">2</button>
+                <button type="button" data-key="3">3</button>
+                <button type="button" data-key="4">4</button>
+                <button type="button" data-key="5">5</button>
+                <button type="button" data-key="6">6</button>
+                <button type="button" data-key="7">7</button>
+                <button type="button" data-key="8">8</button>
+                <button type="button" data-key="9">9</button>
+                <button type="button" data-action="clear" aria-label="Cancella codice">C</button>
+                <button type="button" data-key="0">0</button>
+                <button type="button" data-action="enter" aria-label="Conferma codice">↵</button>
+            </div>
+            <p id="keypad-feedback" aria-live="polite"></p>
+            <small>ESC PER CHIUDERE</small>
+        </section>
+    </div>
+    <div id="inventory-overlay" aria-hidden="true">
+        <div id="inventory-panel" role="dialog" aria-modal="true" aria-labelledby="inventory-title">
+            <strong id="inventory-title">INVENTARIO &amp; DIARIO</strong>
+            <p id="inventory-content"></p>
+            <small>PREMI TAB O E PER CHIUDERE · R RICARICA IL FUCILE O USA UNA BATTERIA TORCIA</small>
+        </div>
+    </div>
+
+    <div id="anxiety-vignette" aria-hidden="true"></div>
+    <div id="panic-distortion" aria-hidden="true"></div>
+    <div id="panic-hallucinations" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div id="panic-indicator">
+        <div>PANICO <span id="panic-value">0%</span></div>
+        <div id="panic-meter"><div id="panic-fill"></div></div>
+        <div>Premi SPAZIO per calmarti</div>
+        <div class="stamina-label">STAMINA <span id="stamina-value">100%</span></div>
+        <div id="stamina-meter"><div id="stamina-fill"></div></div>
+        <div>Doppio W o SHIFT per correre</div>
+        <div id="battery-status">TORCIA 100% · PILE 0</div>
+    </div>
+
+    <div id="blood-spit" aria-hidden="true"></div>
+    <div id="eyes-closed" aria-hidden="true"></div>
+    <section id="weapon-status" aria-label="Stato armi">
+        <div class="weapon-readout">
+            <span class="weapon-label">FUCILE</span>
+            <span id="ammo-count">0 / 0</span>
+        </div>
+        <div class="weapon-readout">
+            <span class="weapon-label">ASCIA</span>
+            <span id="axe-durability">0 / 7</span>
+        </div>
+        <div id="equipped-weapon">TORCIA · G: ARMA SINISTRA</div>
+    </section>
+
+    <div id="false-jumpscare" aria-hidden="true">
+        <div id="false-jumpscare-face" aria-hidden="true"></div>
+        <strong>STAI PER MORIRE...</strong>
+    </div>
+    <div id="ambient-jumpscare" aria-hidden="true"></div>
+    <div id="doctor-jumpscare" aria-hidden="true"></div>
+    <section id="jumpscare-overlay" aria-hidden="true" aria-labelledby="game-over-title">
+        <strong id="game-over-title">You have been killed</strong>
+        <span>Sei morto. Premi N per una nuova partita o scegli come ripartire.</span>
+        <div class="game-over-actions">
+            <button id="respawn-button" type="button">RESPAWN AL CHECKPOINT</button>
+            <button id="new-game-button" type="button">NUOVA PARTITA</button>
+        </div>
+    </section>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./node_modules/three/build/three.module.js",
+                "thre": "./node_modules/three/build/three.module.js",
+                "three/examples/jsm/": "./node_modules/three/examples/jsm/",
+                "three/addons/": "./node_modules/three/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
